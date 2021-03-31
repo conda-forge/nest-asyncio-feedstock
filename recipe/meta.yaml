@@ -9,8 +9,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ nameUnderscore[0] }}/{{ nameUnderscore }}/{{ nameUnderscore }}-{{ version }}.tar.gz
   sha256: afc5a1c515210a23c461932765691ad39e8eba6551c055ac8d5546e69250d0aa
-  patches:
-    - 0001-Prevent-infinite-loop-when-asyncio.sleep-0-is-used-i.patch
 
 build:
   noarch: python
