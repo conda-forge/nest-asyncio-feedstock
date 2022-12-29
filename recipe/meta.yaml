@@ -13,14 +13,14 @@ source:
 build:
   skip: True  # [py<35]
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install --no-deps . -vv
 
 requirements:
   host:
     - python
     - pip
-    - setuptools >=42
-    - setuptools_scm >=3.4.3
+    - setuptools
+    - setuptools_scm
     - toml
     - wheel
   run:
@@ -29,6 +29,10 @@ requirements:
 test:
   imports:
     - nest_asyncio
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/erdewit/nest_asyncio
