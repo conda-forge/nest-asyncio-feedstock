@@ -1,6 +1,6 @@
 {% set name = "nest-asyncio" %}
 {% set nameUnderscore = "nest_asyncio" %}
-{% set version = "1.5.5" %}
+{% set version = "1.5.6" %}
 
 package:
   name: {{ name|lower }}
@@ -8,19 +8,19 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ nameUnderscore[0] }}/{{ nameUnderscore }}/{{ nameUnderscore }}-{{ version }}.tar.gz
-  sha256: e442291cd942698be619823a17a86a5759eabe1f8613084790de189fe9e16d65
+  sha256: d267cc1ff794403f7df692964d1d2a3fa9418ffea2a3f6859a439ff482fef290
 
 build:
   skip: True  # [py<35]
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install --no-deps . -vv
 
 requirements:
   host:
     - python
     - pip
-    - setuptools >=42
-    - setuptools_scm >=3.4.3
+    - setuptools
+    - setuptools_scm
     - toml
     - wheel
   run:
@@ -29,6 +29,10 @@ requirements:
 test:
   imports:
     - nest_asyncio
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/erdewit/nest_asyncio
@@ -42,7 +46,7 @@ about:
     Trying to do so will give the error RuntimeError - This event loop is already running.
     The issue pops up in various environments, such as web servers, GUI applications and in Jupyter notebooks.
     This module patches asyncio to allow nested use of asyncio.run and loop.run_until_complete.
-  doc_url: https://github.com/erdewit/nest_asyncio
+  doc_url: https://github.com/erdewit/nest_asyncio/blob/master/README.rst
   dev_url: https://github.com/erdewit/nest_asyncio
 
 extra:
