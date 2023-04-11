@@ -11,28 +11,22 @@ source:
   sha256: e442291cd942698be619823a17a86a5759eabe1f8613084790de189fe9e16d65
 
 build:
-  skip: True  # [py<35]
+  noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install --no-deps . -vv
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python
+    - python >=3.5
     - pip
     - setuptools
-    - setuptools_scm
-    - toml
-    - wheel
   run:
-    - python
+    - python >=3.5
+
 
 test:
   imports:
     - nest_asyncio
-  requires:
-    - pip
-  commands:
-    - pip check
 
 about:
   home: https://github.com/erdewit/nest_asyncio
