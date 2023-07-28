@@ -1,11 +1,11 @@
-About nest-asyncio
-==================
+About nest-asyncio-feedstock
+============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/nest-asyncio-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/erdewit/nest_asyncio
 
 Package license: BSD-2-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/nest-asyncio-feedstock/blob/main/LICENSE.txt)
 
 Summary: Patch asyncio to allow nested event loops
 
